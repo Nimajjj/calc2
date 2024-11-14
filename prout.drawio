@@ -1,0 +1,89 @@
+<mxfile host="65bd71144e">
+    <diagram id="SZ7daQTkKxy3JNfGuecy" name="Page-1">
+        <mxGraphModel dx="1333" dy="758" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="33" style="edgeStyle=none;html=1;" edge="1" parent="1" source="26" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="results" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="33">
+                    <mxGeometry x="-0.0863" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="Solver" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="55" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;" edge="1" parent="1" source="27" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Parser" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" style="edgeStyle=none;html=1;" edge="1" parent="1" source="28" target="52">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Reader" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;" edge="1" parent="1" source="29" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="file" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="30">
+                    <mxGeometry x="0.1492" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="50" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;" edge="1" parent="1" source="36" target="42">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" style="edgeStyle=none;html=1;" edge="1" parent="1" source="36" target="41">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="+" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="60" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="5" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="200" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="2" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="290" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="8" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="760" y="290" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;" edge="1" parent="1" source="40" target="38">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;" edge="1" parent="1" source="40" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="-" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="210" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" style="edgeStyle=none;html=1;" edge="1" parent="1" source="41" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=none;html=1;" edge="1" parent="1" source="41" target="40">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="*" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="130" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="3" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="130" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;" edge="1" parent="1" source="52" target="27">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Tokenizer" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="340" width="110" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
