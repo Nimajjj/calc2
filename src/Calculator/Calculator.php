@@ -30,9 +30,17 @@ final class Calculator implements ICalculator
     {
         foreach ($this->raw_data as $line)
         {
-            $tokens = $this->tokenizer->exec($line);
-            $tree = $this->parser->exec($tokens);
-            echo $line . " = " . $this->solver->exec($tree) . "\n";
+            try
+            {
+                $tokens = $this->tokenizer->exec($line);
+                $tree = $this->parser->exec($tokens);
+                echo $line . " = " . $this->solver->exec($tree) . "\n";
+            }
+            catch (\Exception $e)
+            {
+                echo $line . " = " . $e->getMessage() . "\n";
+            }
+
         }
     }
 }
