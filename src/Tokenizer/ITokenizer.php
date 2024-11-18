@@ -1,6 +1,6 @@
 <?php
 
-namespace BenjaminEtLaurie\App\Tokenizer;
+namespace BenjaminEtLaurie\Calc2\Tokenizer;
 
 interface ITokenizer
 {

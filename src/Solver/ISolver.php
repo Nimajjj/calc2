@@ -1,7 +1,7 @@
 <?php
 
-namespace BenjaminEtLaurie\App\Solver;
-use BenjaminEtLaurie\App\Parser\INode;
+namespace BenjaminEtLaurie\Calc2\Solver;
+use BenjaminEtLaurie\Calc2\Parser\INode;
 
 interface ISolver
 {

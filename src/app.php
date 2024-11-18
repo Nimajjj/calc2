@@ -6,14 +6,14 @@ declare(strict_types=1);
 // TODO : verifier que l'app soit bien KISS
 // TODO : encapsulate App into a Builder class
 
-namespace BenjaminEtLaurie\App;
+namespace BenjaminEtLaurie\Calc2;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use BenjaminEtLaurie\App\Reader\Reader;
-use BenjaminEtLaurie\App\Parser\Parser;
-use BenjaminEtLaurie\App\Tokenizer\Tokenizer;
-use BenjaminEtLaurie\App\Solver\Solver;
+use BenjaminEtLaurie\Calc2\Reader\Reader;
+use BenjaminEtLaurie\Calc2\Parser\Parser;
+use BenjaminEtLaurie\Calc2\Tokenizer\Tokenizer;
+use BenjaminEtLaurie\Calc2\Solver\Solver;
 
 final class Coink
 {

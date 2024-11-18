@@ -1,6 +1,6 @@
 <?php
 
-namespace BenjaminEtLaurie\App\Reader;
+namespace BenjaminEtLaurie\Calc2\Reader;
 
 final class Reader implements IReader
 {

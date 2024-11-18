@@ -1,6 +1,6 @@
 <?php
 
-namespace BenjaminEtLaurie\App\Parser;
+namespace BenjaminEtLaurie\Calc2\Parser;
 
 
 final class Node implements INode
