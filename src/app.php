@@ -13,7 +13,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use BenjaminEtLaurie\Calc2\Builder\Builder;
 
 $builder = ( new Builder() )
-    ->buildReader("data.txt")
+    ->buildReader("../data.txt")
     ->buildTokenizer()
     ->buildParser()
     ->buildSolver();

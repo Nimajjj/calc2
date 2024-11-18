@@ -32,11 +32,6 @@ final class Solver implements ISolver
             return $this->exec($node->left) / $this->exec($node->right);
         }
 
-        if ( $node->value() === "^" )
-        {
-            return $this->exec($node->left) ** $this->exec($node->right);
-        }
-
         assert(false, "cestunimprevu");
     }
 }
