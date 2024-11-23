@@ -1,11 +1,25 @@
 <?php
 
 namespace BenjaminEtLaurie\Calc2\Tokenizer;
+use BenjaminEtLaurie\Calc2\ErrorForwarder\ErrorForwarder;
 
-final class Tokenizer implements ITokenizer
+final class Tokenizer 
+    extends ErrorForwarder
+    implements ITokenizer
 {
+    public function __construct(
+        private array $operatorTokens
+    )
+    {
+    }
+
     public function exec(string $expression): array
     {
+        $this->except(
+            $this->isValidExpression($expression),
+            "Expression '" . $expression . "' is invalid."
+        );
+
         $tokens = [];
         $length = strlen($expression);
         $i = 0;
@@ -26,7 +40,7 @@ final class Tokenizer implements ITokenizer
                 continue;
             }
 
-            if (in_array($char, ['+', '-', '*', '/', '^', '(', ')'])) # WARNING : on ne verifie pas que le Solver resout tous les operateurs
+            if (in_array($char, $this->operatorTokens))
             {
                 $tokens[] = $char;
             }
@@ -35,5 +49,36 @@ final class Tokenizer implements ITokenizer
         }
 
         return $tokens;
+    }
+
+    
+    public function validate(): void
+    {
+        foreach($this->operatorTokens as $token)
+        {
+            $this->except(
+                is_string($token), 
+                "Operator '" . $token . "' is not string."
+            );
+        }
+    }
+
+
+    private function isValidExpression(string $expression): bool 
+    {
+        foreach(str_split($expression) as $char)
+        {
+            if (in_array($char, $this->operatorTokens)  # if char is an operator
+                || ctype_digit($char)   # if char is a number 
+                || $char === "."
+                || $char === " "
+            )
+            {
+                continue;
+            }
+
+            return false;
+        }
+        return true;
     }
 }

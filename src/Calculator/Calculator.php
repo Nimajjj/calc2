@@ -24,7 +24,6 @@ final class Calculator implements ICalculator
     private function loadData(string $filename): void
     {
         $this->raw_data = $this->reader->exec($filename);
-        assert(is_array($this->raw_data));
     }
     public function exec(): void
     {

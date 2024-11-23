@@ -2,19 +2,21 @@
 
 declare(strict_types=1);
 
-// TODO : verifier que l'app soit bien SOLID
-// TODO : verifier que l'app soit bien KISS
-// TODO : encapsulate App into a Builder class
-
 namespace BenjaminEtLaurie\Calc2;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use BenjaminEtLaurie\Calc2\Builder\Builder;
 
+if ($argc != 2)
+{
+    echo "[ERROR] A file path must be provided as cli parameter.\n";
+    die();
+}
+
 $builder = ( new Builder() )
-    ->buildReader("../data.txt")
-    ->buildTokenizer()
+    ->buildReader($argv[1])
+    ->buildTokenizer(['+', '-', '*', '/', '(', ')'])
     ->buildParser()
     ->buildSolver();
 

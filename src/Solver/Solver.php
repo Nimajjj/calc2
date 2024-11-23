@@ -1,9 +1,12 @@
 <?php
 
 namespace BenjaminEtLaurie\Calc2\Solver;
+use BenjaminEtLaurie\Calc2\ErrorForwarder\ErrorForwarder;
 use BenjaminEtLaurie\Calc2\Parser\INode;
 
-final class Solver implements ISolver
+final class Solver 
+    extends ErrorForwarder
+    implements ISolver
 {
     public function exec(INode $node): float
     {
@@ -29,9 +32,16 @@ final class Solver implements ISolver
 
         if ( $node->value() === "/" )
         {
+            $this->except(
+                $this->exec($node->right) !== 0.,
+                "Division by zero error."
+            );
             return $this->exec($node->left) / $this->exec($node->right);
         }
 
-        assert(false, "cestunimprevu");
+        $this->except(
+            false,
+            "Something unexpected happened."
+        );
     }
 }
