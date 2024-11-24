@@ -35,9 +35,6 @@ final class Parser
         return $node;
     }
 
-    /**
-     * @throws Exception
-     */
     private function parseFactor(array &$tokens): Node
     {
         $token = array_shift($tokens);
