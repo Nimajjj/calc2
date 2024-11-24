@@ -1,10 +1,11 @@
 <?php
 
 namespace BenjaminEtLaurie\Calc2\Parser;
+use BenjaminEtLaurie\Calc2\ErrorForwarder\ErrorForwarder;
 
-use Exception;
-
-final class Parser implements IParser
+final class Parser 
+    extends ErrorForwarder
+    implements IParser
 {
     public function exec(array $tokens): INode
     {
@@ -44,13 +45,17 @@ final class Parser implements IParser
         if (is_numeric($token))
         {
             return new Node($token);
-        } elseif ($token === '(')
+        } 
+        elseif ($token === '(')
         {
             $node = $this->parseExpression($tokens);
             array_shift($tokens); // Remove ')'
             return $node;
         }
 
-        throw new Exception("Unexpected token: $token");
+        $this->excepts(
+            false,
+            "Unexpected token: '" . $token . "'"
+        );
     }
 }
