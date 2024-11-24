@@ -67,28 +67,57 @@ final class Tokenizer
     private function isValidExpression(string $expression): bool 
     {
         $expression = str_replace(" ", "", $expression);
-
         $lastChar = '';
-        foreach(str_split($expression) as $char)
+        $parenthesisBalance = 0;
+
+        foreach (str_split($expression) as $char)
         {
-            if (ctype_digit($char) || $char === ".")
+            if (ctype_digit($char) || $char === ".")  // If the character is a digit or a decimal point
             {
                 $lastChar = $char;
                 continue;
             }
 
-            if (in_array($char, $this->operatorTokens)) // If the character is an operator
+            if (in_array($char, $this->operatorTokens)) // If the character is an operator or parenthesis
             {
-                // Check if the previous character was also an operator (excluding parentheses)
-                if (in_array($lastChar, $this->operatorTokens) && !in_array($lastChar, ['(', ')']))
+                if ($char === '(')
                 {
-                    return false;
+                    $parenthesisBalance++;
                 }
+                elseif ($char === ')')
+                {
+                    $parenthesisBalance--;
+                    if ($parenthesisBalance < 0) // More closing parentheses than opening
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Check if the previous character was also an operator (excluding parentheses)
+                    if (in_array($lastChar, $this->operatorTokens) && !in_array($lastChar, ['(', ')']))
+                    {
+                        return false;
+                    }
+                }
+
                 $lastChar = $char;
                 continue;
             }
 
             // If the character is invalid, return false
+            return false;
+        }
+
+        // Ensure all parentheses are balanced
+        if ($parenthesisBalance !== 0)
+        {
+            return false;
+        }
+
+        // Ensure the last character is not an operator
+        if (in_array($lastChar, $this->operatorTokens) && !in_array($lastChar, [')']))
+        {
             return false;
         }
 
