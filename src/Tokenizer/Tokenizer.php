@@ -66,29 +66,32 @@ final class Tokenizer
 
     private function isValidExpression(string $expression): bool 
     {
+        $expression = str_replace(" ", "", $expression);
+
         $lastChar = '';
         foreach(str_split($expression) as $char)
         {
-            if (in_array($char, $this->operatorTokens)  # if char is an operator
-                || ctype_digit($char)   # if char is a number 
-                || $char === "."
-                || $char === " "
-            )
+            if (ctype_digit($char) || $char === ".")
             {
-                if (
-                    in_array($lastChar, $this->operatorTokens)
-                    && in_array($char, $this->operatorTokens)
-                )
-                {
-                    return false;
-                }
-
                 $lastChar = $char;
                 continue;
             }
 
+            if (in_array($char, $this->operatorTokens)) // If the character is an operator
+            {
+                // Check if the previous character was also an operator (excluding parentheses)
+                if (in_array($lastChar, $this->operatorTokens) && !in_array($lastChar, ['(', ')']))
+                {
+                    return false;
+                }
+                $lastChar = $char;
+                continue;
+            }
+
+            // If the character is invalid, return false
             return false;
         }
+
         return true;
     }
 }
