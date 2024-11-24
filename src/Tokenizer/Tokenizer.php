@@ -66,6 +66,7 @@ final class Tokenizer
 
     private function isValidExpression(string $expression): bool 
     {
+        $lastChar = '';
         foreach(str_split($expression) as $char)
         {
             if (in_array($char, $this->operatorTokens)  # if char is an operator
@@ -74,6 +75,15 @@ final class Tokenizer
                 || $char === " "
             )
             {
+                if (
+                    in_array($lastChar, $this->operatorTokens)
+                    && in_array($char, $this->operatorTokens)
+                )
+                {
+                    return false;
+                }
+
+                $lastChar = $char;
                 continue;
             }
 
